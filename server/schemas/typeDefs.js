@@ -23,6 +23,21 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
   }
+
+  type Parks {
+    _id: ID
+    type: String
+    site_name: String
+    site_location: String
+    site_url: String
+    site_address: String
+    description: String
+  }
+
+  type Category {
+    _id: ID
+    name: String
+  }  
 `;
 
 module.exports = typeDefs;
