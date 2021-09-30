@@ -16,6 +16,12 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    parks: async () => {
+      return Parks.find();
+    },
+    apark: async (_, args) => {
+      return Parks.findOne({ _id: args.id });
+    },
   },
 
   Mutation: {
