@@ -1,6 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
-const { User, Category, Parks } = require('../models');
+const { User, Category, Park } = require('../models');
 
 const resolvers = {
   Query: {
@@ -17,10 +17,10 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     parks: async () => {
-      return Parks.find();
+      return Park.find();
     },
-    apark: async (_, args) => {
-      return Parks.findOne({ _id: args.id });
+    park: async (_, args) => {
+      return Park.findOne({ _id: args.id });
     },
   },
 

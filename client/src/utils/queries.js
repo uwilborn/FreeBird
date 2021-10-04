@@ -29,3 +29,23 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_PARKS = gql`
+  query parks {
+    parks {
+      _id
+      site_name
+      site_location
+    }
+  }
+`;
+
+export const QUERY_PARK = gql`
+  query park($id: ID!) {
+    park(id: $id) {
+      _id
+      site_name
+      site_location
+    }
+  }
+`;

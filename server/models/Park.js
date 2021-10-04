@@ -19,6 +19,6 @@ description: {type: String, required: true, unique: true},
 });
 
 
-const Parks = model('Parks', siteSchema);
+const Park = model('Park', siteSchema);
 
-module.exports = Parks;
+module.exports = Park;

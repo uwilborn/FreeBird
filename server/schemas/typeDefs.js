@@ -17,6 +17,8 @@ const typeDefs = gql`
     users: [User]
     user(id: ID!): User
     me: User
+    parks: [Park]
+    park(id:ID!): Park
   }
 
   type Mutation {
@@ -24,7 +26,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
   }
 
-  type Parks {
+  type Park {
     _id: ID
     type: String
     site_name: String
