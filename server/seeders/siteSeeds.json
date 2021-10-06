@@ -2,7 +2,8 @@ let apiData;
 let saveCounter = 0;
 
 
-const url = ['https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=em9tUC920fypAgMENGc0OWfY7SfamU6icv4nEdsk']
+const url = ["https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=em9tUC920fypAgMENGc0OWfY7SfamU6icv4nEdsk"];
+
 
 url.map(async url => {
 
@@ -16,13 +17,13 @@ try{
   let parkSite = new Park({
     site_name: apiData[i].name,
     description: apiData[i].status,
-    location: { 
-      coordinates: [apiData[i].polygon.coordinates[0][0][1] , apiData[i].polygon.coordinates[0] [0] [0]]}
-      })
+    }
+     };
+      };
       
-   console.log({parkSite}   
+   console.log({parkSite});   
    parkSite.save(() =>
-    console.log("saved" + parkSite)
+    console.log("saved" + parkSite));
     
     saveCounter++;
     
@@ -36,5 +37,5 @@ try{
     }}
     catch (error) {
     console.log(error);
-    }
-    })
+    };
+    });
