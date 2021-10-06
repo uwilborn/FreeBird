@@ -26,10 +26,17 @@ const Header = () => {
     // If logged out show login controls
     return (
       <>
+<<<<<<< HEAD
         <Link to="/parks">
           Parks
         </Link>
         <Link className="btn btn-lg btn-info m-2" to="/login">
+=======
+      <Link className="btn btn-lg btn-info m-2" to="/parks">
+          Parks
+        </Link>  
+      <Link className="btn btn-lg btn-info m-2" to="/login">
+>>>>>>> 56e04d99cd5d9a4c377e765e0667ea35a0ad462c
           Login
         </Link>
         <Link className="btn btn-lg btn-light m-2" to="/signup">
