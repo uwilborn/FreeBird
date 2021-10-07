@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 const Header = () => {
   const logout = (event) => {
@@ -26,24 +26,37 @@ const Header = () => {
     // If logged out show login controls
     return (
       <>
-<<<<<<< HEAD
-        <Link to="/parks">
+        {/* <Link className="btn btn-lg btn-info m-2" to="/parks">
           Parks
-        </Link>
+        </Link> */}
+
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenu2"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Parks
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li>
+              <button class="dropdown-item" type="button">
+                Add an Adventure
+              </button>
+            </li>
+          </ul>
+        </div>
+
         <Link className="btn btn-lg btn-info m-2" to="/login">
-=======
-      <Link className="btn btn-lg btn-info m-2" to="/parks">
-          Parks
-        </Link>  
-      <Link className="btn btn-lg btn-info m-2" to="/login">
->>>>>>> 56e04d99cd5d9a4c377e765e0667ea35a0ad462c
           Login
         </Link>
         <Link className="btn btn-lg btn-light m-2" to="/signup">
           Signup
         </Link>
       </>
-    )
+    );
   };
 
   return (
@@ -51,11 +64,16 @@ const Header = () => {
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
-            <h1 className="m-0">Fun User List</h1>
+            <h1 className="m-0">FreeBird</h1>
+            <h3 className="m-0">
+              <i>Where your virtual adventure awaits</i>
+            </h3>
           </Link>
         </div>
         <div>
-          <p className="m-0 text-center">Simple App to View Users.</p>
+          <p className="m-0 text-center">
+            Take a virtual trip to a National Park.
+          </p>
           {renderControls()}
         </div>
       </div>

@@ -1,44 +1,52 @@
 // Node Modules
-import React from 'react';
-import { useQuery } from '@apollo/client';
-// Utilities
-import Auth from '../utils/auth';
-import { QUERY_PARKS } from '../utils/queries';
-// Components
-import ParkList from '../components/ParkList';
+import React from "react";
 
-const Parks = () => {
-  const { loading, data } = useQuery(QUERY_PARKS);
-  const parks = data?.parks || [];
-
-  const renderParkList = () => {
-    if (loading) {
-      return <h2>Loading...</h2>
-    } else {
-      return <ParkList parks={parks} title="List of Parks" />
-    }
-  } 
-
-  const renderSitename = () => {
-    if (!Auth.loggedIn()) return null;
-    return Auth.getProfile().data.site_name;
-  }
-
+function Park() {
+  let destinations = [
+    {
+      image: "../../public/images/Yellowstone.jpeg",
+      type: "National Park",
+      site_name: "Yellow Stone National Park",
+      site_location: "WY",
+      site_url: "https://www.nps.gov/yell/index.htm",
+      site_address: {
+        type: "Physical",
+        line1: "2 Officers Row",
+        line2: "Yellowstone National Park Headquarters",
+        line3: "",
+        city: "Yellowstone National Park",
+        stateCode: "WY",
+        postalCode: "82190",
+      },
+      description:
+        "Visit Yellowstone and experience the world's first national park. Marvel at a volcano's hidden power rising up in colorful hot springs, mudpots, and geysers. Explore mountains, forests, and lakes to watch wildlife and witness the drama of the natural world unfold. Discover the history that led to the conservation of our national treasures 'for the benefit and enjoyment of the people.",
+    },
+  ];
   return (
-    <main>
-      <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
-          {renderSitename()}
+    <div className="d-flex flex-wrap justify-content-between">
+      {destinations.map((destination, key) => (
+        <div className="card" style={{ width: "33%;" }}>
+          <img
+            className="card-img-top"
+            src={destination.image}
+            width={400}
+            height={400}
+            alt={key}
+          />
+          <div className="card-body">
+            <h5 className="card-title">{destination.site_name}</h5>
+            <p className="card-text">Visit the Links</p>
+            <a href={destination.site_url} className="btn btn-primary">
+              Website
+            </a>
+            <a href={destination.description} className="btn btn-primary">
+              Description
+            </a>
+          </div>
         </div>
-        <div className="col-12 col-md-8 mb-3">
-          {renderParkList()}
-        </div>
-      </div>
-    </main>
+      ))}
+    </div>
   );
-};
+}
 
-export default Parks;
+export default Park;
