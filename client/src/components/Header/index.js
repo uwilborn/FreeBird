@@ -26,28 +26,9 @@ const Header = () => {
     // If logged out show login controls
     return (
       <>
-        {/* <Link className="btn btn-lg btn-info m-2" to="/parks">
+        <Link className="btn btn-lg btn-info m-2" to="/parks">
           Parks
-        </Link> */}
-
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenu2"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Parks
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <li>
-              <button class="dropdown-item" type="button">
-                Add an Adventure
-              </button>
-            </li>
-          </ul>
-        </div>
+        </Link>
 
         <Link className="btn btn-lg btn-info m-2" to="/login">
           Login

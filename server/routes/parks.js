@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
-const Park = require("../models/product");
+const Park = require("../models/Park");
 
 router.get("/", (req, res, next) => {
   Park.find()
@@ -16,6 +16,26 @@ router.get("/", (req, res, next) => {
       res.status(500).json({
         error: err,
       });
+    });
+});
+
+router.post("/api/Park", ({ body }, res) => {
+  Park.create(body)
+    .then((dbPark) => {
+      res.json(dbPark);
+    })
+    .catch((err) => {
+      res.status(404).json(err);
+    });
+});
+
+router.post("/api/Park/bulk", ({ body }, res) => {
+  Park.insertMany(body)
+    .then((dbPark) => {
+      res.json(dbPark);
+    })
+    .catch((err) => {
+      res.status(404).json(err);
     });
 });
 
@@ -45,7 +65,7 @@ router.post("/", (req, res, next) => {
     })
     .catch((err) => console.log(err));
   res.status(201).json({
-    message: "Handling POST requests to /parks",
+    message: "Handling POST requests to /Parks",
     createdProduct: park,
   });
 });
@@ -102,3 +122,5 @@ router.patch("/:parkId", (req, res, next) => {
       });
     });
 });
+
+module.exports = router;

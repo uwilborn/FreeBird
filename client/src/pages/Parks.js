@@ -1,10 +1,11 @@
 // Node Modules
 import React from "react";
+import ParkForm from "./ParkForm";
 
 function Park() {
   let destinations = [
     {
-      image: "../../public/images/Yellowstone.jpeg",
+      image: "/images/Yellowstone.jpeg",
       type: "National Park",
       site_name: "Yellow Stone National Park",
       site_location: "WY",
@@ -45,6 +46,9 @@ function Park() {
           </div>
         </div>
       ))}
+      <div className="container">
+        <ParkForm />
+      </div>
     </div>
   );
 }
