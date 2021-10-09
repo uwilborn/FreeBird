@@ -17,7 +17,7 @@ class Park extends React.Component {
   componentDidMount = () => {
     axios
       .get(
-        "https://developer.nps.gov/api/v1/parks?parkCode=np57&api_key=em9tUC920fypAgMENGc0OWfY7SfamU6icv4nEdsk"
+        "https://developer.nps.gov/api/v1/parks?parkCode=np49&api_key=em9tUC920fypAgMENGc0OWfY7SfamU6icv4nEdsk"
       )
       .then((records) => {
         console.log("Records", records);
@@ -31,7 +31,14 @@ class Park extends React.Component {
             address:
               parkData[i].addresses[0].line1 +
               " ," +
-              parkData[i].addresses[0].city,
+              parkData[i].addresses[0].line2 +
+              " ," +
+              parkData[i].addresses[0].line3 +
+              parkData[i].addresses[0].city +
+              " ," +
+              parkData[i].addresses[0].stateCode +
+              parkData[i].addresses[0].postalCode,
+            website: parkData[i].url,
           };
           parkDB.push(parkrecord);
         }
@@ -92,7 +99,7 @@ class Park extends React.Component {
             <div className="card">
               <h5 className="card-title">{park.name}</h5>
               <p className="card-text">{park.description}</p>
-              {/* <h6>{park.address}</h6> */}
+              <h6>{park.address}</h6>
               <img
                 src={park.src}
                 className="card-img-top"
@@ -100,7 +107,7 @@ class Park extends React.Component {
                 height={200}
                 alt={key}
               />
-              <a href={park.site_url} className="btn btn-primary button:hover">
+              <a href={park.url} className="btn btn-primary button:hover">
                 Website
               </a>
               {/* <button onClick={this.savePark(park)}>Save</button> */}

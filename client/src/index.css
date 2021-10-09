@@ -1089,7 +1089,8 @@ a:hover {
   width: 25%;
   padding: 10px 5px;
   background-color: #74b1b1;
-  margin-left: 1rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
   box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
   border-radius: 10px 15px 15px 10px;
   display: inline-table;
