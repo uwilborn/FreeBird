@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 // const mongoose = require("mongoose");
 const Axios = require("axios");
-// const Park = require("../models/Park");
+const Park = require("../models/Park");
 
 router.get("/api/parks/results", (req, res) => {
   console.log("========API Call======");
