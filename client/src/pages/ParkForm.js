@@ -1,5 +1,4 @@
 import React from "react";
-import Axios from "axios";
 
 class ParkForm extends React.Component {
   state = {
@@ -30,7 +29,7 @@ class ParkForm extends React.Component {
           </div>
 
           <div className="item">
-            <label for="nameofsite" className="form-label">
+            <label htmlFor="nameofsite" className="form-label">
               Site Name:
             </label>
             <input type="nameofsite" className="form-control" id="site_name" />
@@ -60,13 +59,13 @@ class ParkForm extends React.Component {
           </div>
 
           <div className="item">
-            <p for="site_url" className="form-label">
+            <p htmlFor="site_url" className="form-label">
               Website:
             </p>
             <input type="text" className="form-control" id="site_url" />
           </div>
 
-          <div class="btn-block">
+          <div className="btn-block">
             <button type="submit" className="btn btn-primary" href="/">
               BOOK
             </button>

@@ -1,6 +1,6 @@
 // Node Modules
 import React from "react";
-// import ParkForm from "./ParkForm";
+import ParkForm from "./ParkForm";
 import axios from "axios";
 
 class Park extends React.Component {
@@ -24,6 +24,7 @@ class Park extends React.Component {
         var parkData = records.data.data;
         var parkDB = [];
         for (let i = 0; i < parkData.length; i++) {
+          console.log(parkData[i]);
           let parkrecord = {
             name: parkData[i].fullName,
             src: parkData[i].images[0].url,
@@ -70,7 +71,11 @@ class Park extends React.Component {
     return (
       <div className="d-flex flex-wrap justify-content-between">
         {destinations.map((destination, key) => (
-          <div className="card" style={{ width: "33%;" }}>
+          <div
+            key={destination.site_name}
+            className="card"
+            style={{ width: "100%" }}
+          >
             <img
               className="card-img-top"
               src={destination.image}
@@ -82,12 +87,15 @@ class Park extends React.Component {
               <h5 className="card-title">{destination.site_name}</h5>
               {/* <p className="card-text">Visit the Links</p> */}
               <p className="card-text">{destination.description}</p>
-              <a
-                href={destination.site_url}
-                className="btn btn-primary button:hover"
-              >
-                Website
-              </a>
+              <div>
+                <a
+                  href={destination.site_url}
+                  target="_blank"
+                  className="btn btn-primary"
+                >
+                  Website
+                </a>
+              </div>
               {/* <a href={destination.description} className="btn btn-primary">
                 Description
               </a> */}
@@ -96,7 +104,7 @@ class Park extends React.Component {
         ))}
         <div>
           {this.state.parkDB.map((park, key) => (
-            <div className="card">
+            <div key={park.name} className="card">
               <h5 className="card-title">{park.name}</h5>
               <p className="card-text">{park.description}</p>
               <h6>{park.address}</h6>
@@ -107,14 +115,22 @@ class Park extends React.Component {
                 height={200}
                 alt={key}
               />
-              <a href={park.url} className="btn btn-primary button:hover">
-                Website
-              </a>
+              <div>
+                <a
+                  href={park.website}
+                  target="_blank"
+                  className="btn btn-primary"
+                >
+                  Website
+                </a>
+              </div>
               {/* <button onClick={this.savePark(park)}>Save</button> */}
             </div>
           ))}
         </div>
-        <div className="container">{/* <ParkForm /> */}</div>
+        <div className="container">
+          <ParkForm />
+        </div>
       </div>
     );
   }
