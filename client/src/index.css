@@ -1809,11 +1809,11 @@ input:hover::placeholder {
   color: #36a8a8;
 }
 /* UW Form Ends */
-/* 
-.container {
+
+.centered {
+  position: fixed; /* or absolute */
+  top: 50%;
+  left: 50%;
+  font-size: 400px;
   background-color: #36a8a8;
 }
-#logo {
-  font-size: 32px;
-  font-style: lato;
-} */
