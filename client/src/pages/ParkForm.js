@@ -29,7 +29,7 @@ class ParkForm extends React.Component {
           </div>
 
           <div className="item">
-            <label htmlFor="nameofsite" className="form-label">
+            <label for="nameofsite" className="form-label">
               Site Name:
             </label>
             <input type="nameofsite" className="form-control" id="site_name" />
@@ -59,13 +59,13 @@ class ParkForm extends React.Component {
           </div>
 
           <div className="item">
-            <p htmlFor="site_url" className="form-label">
+            <p for="site_url" className="form-label">
               Website:
             </p>
             <input type="text" className="form-control" id="site_url" />
           </div>
 
-          <div className="btn-block">
+          <div class="btn-block">
             <button type="submit" className="btn btn-primary" href="/">
               BOOK
             </button>
