@@ -13,20 +13,6 @@ router.get("/api/parks/results", (req, res) => {
     res.json(APIData);
   });
 });
-router.get("/", (req, res, next) => {
-  Park.find()
-    .exec()
-    .then((docs) => {
-      console.log(docs);
-      res.status(200).json(docs);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        error: err,
-      });
-    });
-});
 
 router.post("/api/Park", ({ body }, res) => {
   Park.create(body)
